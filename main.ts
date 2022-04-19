@@ -3,20 +3,20 @@ radio.onReceivedNumber(function (receivedNumber) {
         basic.showIcon(IconNames.No)
     }
 })
-input.onLogoEvent(TouchButtonEvent.Pressed, function () {
-    if (logotipo == 0) {
-        radio.sendNumber(8)
-        logotipo += 1
-    } else if (logotipo == 1) {
-        radio.sendNumber(7)
-        logotipo += 0
-    }
-})
 input.onButtonPressed(Button.A, function () {
     radio.sendNumber(1)
 })
 input.onButtonPressed(Button.B, function () {
     radio.sendNumber(2)
+})
+input.onLogoEvent(TouchButtonEvent.Touched, function () {
+    if (logotipo == 1) {
+        radio.sendNumber(7)
+        logotipo += 0
+    } else if (logotipo == 0) {
+        radio.sendNumber(8)
+        logotipo += 1
+    }
 })
 let logotipo = 0
 radio.setGroup(86)
